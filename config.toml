@@ -37,8 +37,8 @@ summarylength = 25
   custom_stylesheets = []   # [ "scss/my_1.scss", "scss/my_2.scss" ]
   dateFormat = "26 FEB 1994"
   # Meta data
-  description = "Roxo Hugo themes | Design Agency Template by StaticMania"
-  author = "StaticMania"
+  description = "Karlova Jungle Ilustuudio"
+  author = "Andri Jasinski"
   # Google Analitycs
   googleAnalitycsID = "Your ID"
   # We're using formspree.io for form handling, paste your formspree url below
@@ -70,7 +70,7 @@ summarylength = 25
   # Banner Section
   [params.banner]
     enable                = true
-    background_image      = "images/backgrounds/hero-background.jpg"
+    background_image      = "images/backgrounds/karlovajungle-background.jpg"
     heading               = "KARLOVA JUNGLE ILUSTUUDIO"
     tagline               = ""
     primary_button        = "Portfoolio"
@@ -102,10 +102,10 @@ summarylength = 25
     params.footer.qr_print = false
     # Footer Contact Info
     [params.footer.contactInfo]
-      title   = "Contact Info"
-      address = "713 Elmwood St.<br>Prior Lake, MN 55372"
-      phone   = "409-896-1444"
-      email   = "info@roxo.co"
+      title   = "Kontakt"
+      address = "Tähe 19 - 44, 2 korrus, Tartu, Eesti"
+      phone   = ""
+      email   = "karlovajungle@gmail.com"
       # Footer Sitemap
       [params.footer.sitemap]
         title   = "Sitemap"
