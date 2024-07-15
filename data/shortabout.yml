@@ -1,0 +1,9 @@
+enable  : true
+title   : "KJ ILUSTUUDIOST"
+subtitle: "Tere tulemast Karlova südalinnas asuvasse privaatsesse ilustuudiosse!
+Meie juuksur-stilist Katrin Jasinski on siin, et muuta Sinu juuksed kauniks ja säravaks. Tunne end erilisena privaatses ja hubases ilustuudios, kus saad nautida professionaalset teenindust, head kohvi ja ilusat keskkonda.
+Ilustuudios kasutame kõrgkvaliteetseid KEVIN.MURPHY tooteid ja värve ning võrratud Olaplex juuksehooldust, et tagada parim tulemus ja rahulolu meie klientidele."
+testimonial_item :
+  - thumb : "images/shortabout/img2.jpg"
+  - thumb : "images/shortabout/img1.jpg"
+  - thumb : "images/shortabout/img3.jpg"
