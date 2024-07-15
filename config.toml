@@ -73,8 +73,8 @@ summarylength = 25
     background_image      = "images/backgrounds/karlovajungle-background-darken.jpg"
     heading               = "KARLOVA JUNGLE ILUSTUUDIO"
     tagline               = ""
-    primary_button        = "Portfoolio"
-    primary_button_url    = "portfolio"
+    primary_button        = "Broneeri"
+    primary_button_url    = "https://karlova-jungle.salon.life/karlova-jungle"
     secondary_button      = "Broneeri"
     secondary_button_url  = "https://karlova-jungle.salon.life/karlova-jungle"
 
