@@ -5,7 +5,8 @@ heading : "Katrin Jasinski"
 image: "images/about/about-img1.jpg"
 description : "Juuksur-stilist Katrin on läbinud mitmeid koolitusi ning teinud inspireerivat ja loovat tööd ka väljaspool salongi. Elukestev õppe on edu võti!"
 expertise_title: "Kogemus"
-expertise_sectors: [
+expertise_outside_works_title: "Juuksuri ja jumestaja töö väljaspool salongi:"
+expertise_studies: [
     "2018 Tartu Ülikooli Sotsiaalpedagoogika eriala",
     "2018 GLOW International Make-up School",
     "2019 Balmain tootekoolitus",
@@ -29,7 +30,8 @@ expertise_sectors: [
     "2023 KEVIN.MURPHY RE:FRAME värvi-ja stiliseerimisekoolitus",
     "2023 KEVIN.MURPHY GREY värvikoolitus",
     "2023 KEVIN.MURPHY ART LAB edasijõudnute värvikoolitus",
-    "Juuksuri ja jumestaja töö väljaspool salongi:",
+    ]
+expertise_outside_works: [
     "2019 Juuksurite aasta tegija 2019 'Publiku lemmik'",
     "2019 Backstage 'Moeäratus'",
     "2019 Backstage Estonian Fashion Festival",

@@ -1,7 +1,7 @@
 .site-about{
   &-header{
     padding-top: 80px;
-    background-color: $gray;
+    background-color: $light-green;
     @include mobile{
       padding-top: 60px;
       text-align: center;
@@ -13,7 +13,7 @@
     flex-wrap: wrap;
   }
   &-company{
-    background: $gray;
+    background: $light-green;
     width: 40%;
     padding: 70px 38px;
     img{
