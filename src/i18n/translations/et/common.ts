@@ -4,7 +4,7 @@ export const common = {
   address: 'Tähe 19 - 44, 2 korrus, Tartu, Eesti',
 
   seo: {
-    title: 'Karlova Jungle — Privaatne ilustuudio Tartu Karlovas',
+    title: 'Karlova Jungle — Privaatne ilustuudio Tartu südames',
     description:
       'Karlova Jungle on privaatne juuksuri- ja ilusalong Tartu Karlova linnaosas. Broneeringutel põhinev töörežiim, personaalne teenindus.',
   },
