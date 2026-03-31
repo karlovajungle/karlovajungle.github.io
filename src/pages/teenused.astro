@@ -1,166 +1,43 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations();
+const { meta, heading, sections } = t.services;
 ---
 
 <PageLayout
-  title="Teenused ja hinnad — Karlova Jungle"
-  description="Karlova Jungle teenuste nimekiri ja hinnad. Juuste lõikamine, värvimine, hooldus, soengud ja jumestus."
+  title={meta.title}
+  description={meta.description}
 >
   <div class="pt-28 md:pt-36 section-spacing">
     <div class="container-site max-w-2xl">
-      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-12">Teenused ja hinnad</h1>
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-12">{heading}</h1>
 
-      <!-- Lõikamine -->
-      <section class="mb-10" aria-labelledby="loikamine">
-        <h2 id="loikamine" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Lõikamine</h2>
-        <ul class="space-y-4">
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Juukselõikus naistele</span>
-            <span class="shrink-0 text-[#516056]">€35</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Juukselõikus meestele (kääridega)</span>
-            <span class="shrink-0 text-[#516056]">€25</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Masinlõikus meestele</span>
-            <span class="shrink-0 text-[#516056]">€20</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Juukselõikus lastele (vanusele kuni 10)</span>
-            <span class="shrink-0 text-[#516056]">€15</span>
-          </li>
-          <li>
-            <div class="flex justify-between items-baseline gap-4">
-              <span class="text-[#1F2A22]">Stiilimuutus naistele</span>
-              <span class="shrink-0 text-[#516056]">€45</span>
-            </div>
-            <p class="text-sm text-[#516056] mt-1">Mudellõikus/stiliseeritud keerulisem lõikus või selle värskendamine.</p>
-          </li>
-          <li>
-            <div class="flex justify-between items-baseline gap-4">
-              <span class="text-[#1F2A22]">Stiilimuutus meestele</span>
-              <span class="shrink-0 text-[#516056]">€30</span>
-            </div>
-            <p class="text-sm text-[#516056] mt-1">Mudellõikus/stiliseeritud keerulisem lõikus või selle värskendamine.</p>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Tuka lõikus</span>
-            <span class="shrink-0 text-[#516056]">€8</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Värvimine -->
-      <section class="mb-10" aria-labelledby="varvimine">
-        <h2 id="varvimine" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Värvimine</h2>
-        <ul class="space-y-4">
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Väljakasvu värvimine</span>
-            <span class="shrink-0 text-[#516056]">€45</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Värvimine</span>
-            <span class="shrink-0 text-[#516056]">al €60</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Triibutamine</span>
-            <span class="shrink-0 text-[#516056]">al €60</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Värvimise ja juukselõikuse komplektteenus</span>
-            <span class="shrink-0 text-[#516056]">al €80</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Värvimine balayage või eritehnikas</span>
-            <span class="shrink-0 text-[#516056]">al €100</span>
-          </li>
-        </ul>
-        <p class="text-sm text-[#516056] italic mt-5">Kõikidele värviteenustele lisandub värvi grammi hind €0.40.</p>
-      </section>
-
-      <!-- Toonimine -->
-      <section class="mb-10" aria-labelledby="toonimine">
-        <h2 id="toonimine" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Toonimine</h2>
-        <ul class="space-y-4">
-          <li>
-            <div class="flex justify-between items-baseline gap-4">
-              <span class="text-[#1F2A22]">Juuste toonimine</span>
-              <span class="shrink-0 text-[#516056]">al €45</span>
-            </div>
-            <p class="text-sm text-[#516056] mt-1">Tooni värskendamine. Teenus sisaldab peapesu ja föönitamist.</p>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Juuste toonimine lisaks värvimisteenusele</span>
-            <span class="shrink-0 text-[#516056]">al €25</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Hooldused -->
-      <section class="mb-10" aria-labelledby="hooldused">
-        <h2 id="hooldused" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Hooldused</h2>
-        <ul class="space-y-4">
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Olaplex hooldus lühikestele juustele</span>
-            <span class="shrink-0 text-[#516056]">al €45</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Olaplex hooldus pikkadele juustele</span>
-            <span class="shrink-0 text-[#516056]">al €60</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Olaplex hooldus lisana värvimisteenusele</span>
-            <span class="shrink-0 text-[#516056]">al €15</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">KM viieastmeline peanaha hooldus</span>
-            <span class="shrink-0 text-[#516056]">al €55</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Soengud -->
-      <section class="mb-10" aria-labelledby="soengud">
-        <h2 id="soengud" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Soengud</h2>
-        <ul class="space-y-4">
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Föönisoeng (sisaldab peapesu)</span>
-            <span class="shrink-0 text-[#516056]">€40</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Lokisoeng</span>
-            <span class="shrink-0 text-[#516056]">€38</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Pidulik soeng</span>
-            <span class="shrink-0 text-[#516056]">€50</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Pruudi proovisoeng</span>
-            <span class="shrink-0 text-[#516056]">€55</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Pruudisoeng</span>
-            <span class="shrink-0 text-[#516056]">€55</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Jumestus -->
-      <section class="mb-12" aria-labelledby="jumestus">
-        <h2 id="jumestus" class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">Jumestus</h2>
-        <ul class="space-y-4">
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Jumestus</span>
-            <span class="shrink-0 text-[#516056]">€45</span>
-          </li>
-          <li class="flex justify-between items-baseline gap-4">
-            <span class="text-[#1F2A22]">Pruudi jumestus</span>
-            <span class="shrink-0 text-[#516056]">€55</span>
-          </li>
-        </ul>
-      </section>
+      {sections.map((section, idx) => (
+        <section class={idx === sections.length - 1 ? 'mb-12' : 'mb-10'} aria-labelledby={section.id}>
+          <h2 id={section.id} class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">{section.heading}</h2>
+          <ul class="space-y-4">
+            {section.items.map(item => (
+              'note' in item && item.note ? (
+                <li>
+                  <div class="flex justify-between items-baseline gap-4">
+                    <span class="text-[#1F2A22]">{item.name}</span>
+                    <span class="shrink-0 text-[#516056]">{item.price}</span>
+                  </div>
+                  <p class="text-sm text-[#516056] mt-1">{item.note}</p>
+                </li>
+              ) : (
+                <li class="flex justify-between items-baseline gap-4">
+                  <span class="text-[#1F2A22]">{item.name}</span>
+                  <span class="shrink-0 text-[#516056]">{item.price}</span>
+                </li>
+              )
+            ))}
+          </ul>
+          {section.footnote && <p class="text-sm text-[#516056] italic mt-5">{section.footnote}</p>}
+        </section>
+      ))}
 
     </div>
   </div>

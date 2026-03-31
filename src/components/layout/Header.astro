@@ -1,7 +1,9 @@
 ---
-import { navLinks } from '../../data/navigation';
+import { useTranslations } from '../../i18n';
 import { site } from '../../data/site';
 
+const t = useTranslations();
+const { nav, header } = t.common;
 const pathname = Astro.url.pathname;
 ---
 
@@ -11,12 +13,12 @@ const pathname = Astro.url.pathname;
   style="background: rgba(231, 240, 228, 0.08); backdrop-filter: blur(8px);"
 >
   <div class="container-site">
-    <nav class="flex items-center justify-between h-16 md:h-20" aria-label="Peamine navigatsioon">
+    <nav class="flex items-center justify-between h-16 md:h-20" aria-label={nav.ariaLabel}>
       <!-- Logo -->
-      <a href="/" class="flex items-center shrink-0" aria-label="Karlova Jungle — avaleht">
+      <a href="/" class="flex items-center shrink-0" aria-label={header.logoAriaLabel}>
         <img
           src="/images/logos/logo-leaf.svg"
-          alt="Karlova Jungle"
+          alt={header.logoAlt}
           class="h-8 md:h-10 w-auto"
           width="40"
           height="40"
@@ -25,7 +27,7 @@ const pathname = Astro.url.pathname;
 
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-6 lg:gap-8">
-        {navLinks.map(link => (
+        {nav.links.map(link => (
           <a
             href={link.href}
             class={`text-sm font-sans font-medium tracking-wide transition-colors hover:text-[#6F8F72] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72] ${
@@ -41,7 +43,7 @@ const pathname = Astro.url.pathname;
           rel="noopener noreferrer"
           class="ml-2 px-5 py-2 text-sm font-sans font-medium tracking-wide border border-current rounded-sm transition-colors hover:bg-[#3F5A45] hover:border-[#3F5A45] hover:text-[#F4F7F2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72]"
         >
-          Broneeri
+          {header.booking}
         </a>
       </div>
 
@@ -53,14 +55,14 @@ const pathname = Astro.url.pathname;
           rel="noopener noreferrer"
           class="px-4 py-1.5 text-sm font-sans font-medium border border-current rounded-sm"
         >
-          Broneeri
+          {header.booking}
         </a>
         <button
           id="menu-toggle"
           type="button"
           aria-controls="mobile-menu"
           aria-expanded="false"
-          aria-label="Ava menüü"
+          aria-label={header.openMenu}
           class="p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72]"
         >
           <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -82,12 +84,12 @@ const pathname = Astro.url.pathname;
     id="mobile-menu"
     role="dialog"
     aria-modal="true"
-    aria-label="Navigatsioonimenüü"
+    aria-label={header.mobileMenuLabel}
     class="hidden md:hidden"
     style="background: #F4F7F2;"
   >
     <div class="container-site py-6 flex flex-col gap-1 border-t border-[#C7D5C6]">
-      {navLinks.map(link => (
+      {nav.links.map(link => (
         <a
           href={link.href}
           class={`py-3 text-base font-sans font-medium border-b border-[#C7D5C6] last:border-0 transition-colors hover:text-[#6F8F72] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72] ${
@@ -108,7 +110,6 @@ const pathname = Astro.url.pathname;
   const iconOpen = document.getElementById('icon-open') as SVGElement;
   const iconClose = document.getElementById('icon-close') as SVGElement;
 
-  // Sticky header background on scroll
   function updateHeader() {
     if (window.scrollY > 40) {
       header.style.background = 'rgba(244, 247, 242, 0.96)';
@@ -124,7 +125,6 @@ const pathname = Astro.url.pathname;
   window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
 
-  // Mobile menu toggle
   toggle.addEventListener('click', () => {
     menu.classList.toggle('hidden');
     const isOpen = !menu.classList.contains('hidden');
@@ -133,7 +133,6 @@ const pathname = Astro.url.pathname;
     iconClose.classList.toggle('hidden', !isOpen);
   });
 
-  // Close mobile menu on link click
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden');

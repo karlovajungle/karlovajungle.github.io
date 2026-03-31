@@ -1,20 +1,24 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations();
+const { meta, heading, message, backLink } = t.notFound;
 ---
 
 <PageLayout
-  title="Lehte ei leitud — Karlova Jungle"
+  title={meta.title}
   noindex={true}
 >
   <div class="pt-28 md:pt-36 section-spacing">
     <div class="container-site max-w-xl">
-      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-6">404</h1>
-      <p class="text-[#516056] text-lg mb-8">Lehte ei leitud.</p>
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-6">{heading}</h1>
+      <p class="text-[#516056] text-lg mb-8">{message}</p>
       <a
         href="/"
         class="inline-block text-sm text-[#3F5A45] border-b border-[#6F8F72] hover:border-[#3F5A45] transition-colors"
       >
-        ← Tagasi avalehele
+        {backLink}
       </a>
     </div>
   </div>

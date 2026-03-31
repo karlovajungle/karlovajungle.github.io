@@ -1,53 +1,40 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations();
+const { meta, about } = t.home;
 ---
 
 <PageLayout
-  title="Karlova Jungle — Privaatne ilustuudio Tartu Karlovas"
-  description="Karlova Jungle on privaatne juuksuri- ja ilusalong Tartu Karlova linnaosas. Broneeringutel põhinev töörežiim, personaalne teenindus."
+  title={meta.title}
+  description={meta.description}
 >
   <Hero />
 
-  <!-- Salon description + photos -->
   <section class="section-spacing bg-[#E7F0E4]" aria-labelledby="about-heading">
     <div class="container-site max-w-2xl mb-10 md:mb-12">
       <h2 id="about-heading" class="font-serif text-3xl md:text-4xl text-[#1F2A22] mb-6">
-        Privaatne ilustuudio Karlovas
+        {about.heading}
       </h2>
       <p class="text-[#516056] leading-relaxed text-lg">
-        Karlova Jungle on roheline ja hubane ilustuudio Tartus, kus saad nautida professionaalset teenust rahulikus atmosfääris. Fookuses on kvaliteet, detailid ja tulemus, milles võib kindel olla.
+        {about.text}
       </p>
     </div>
     <div class="container-site">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div class="aspect-square overflow-hidden rounded-sm bg-[#C7D5C6]">
-          <img
-            src="/images/homepage/work-1.webp"
-            alt="Stilist tööl"
-            class="w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-sm bg-[#C7D5C6]">
-          <img
-            src="/images/homepage/work-2.webp"
-            alt="Stilist tööl"
-            class="w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="aspect-square overflow-hidden rounded-sm bg-[#C7D5C6]">
-          <img
-            src="/images/homepage/work-3.webp"
-            alt="Salongisisustus"
-            class="w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+        {about.images.map(img => (
+          <div class="aspect-square overflow-hidden rounded-sm bg-[#C7D5C6]">
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>

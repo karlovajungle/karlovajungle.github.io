@@ -1,64 +1,30 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations();
+const { meta, heading, name, role, intro, timeline, outsideHeading, outsideItems } = t.experience;
 ---
 
 <PageLayout
-  title="Kogemus — Karlova Jungle"
-  description="Katrin Jasinski — juuksur-stilist. Erialane haridus, koolitused ja kogemus."
+  title={meta.title}
+  description={meta.description}
 >
   <div class="pt-28 md:pt-36 section-spacing">
     <div class="container-site max-w-2xl">
 
-      <!-- Page title + intro -->
-      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-8">Kogemus</h1>
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-8">{heading}</h1>
 
       <div class="mb-14 pb-14 border-b border-[#C7D5C6]">
-        <p class="font-serif text-2xl text-[#1F2A22] mb-1">Katrin Jasinski</p>
-        <p class="text-sm uppercase tracking-widest text-[#6F8F72] mb-6">Juuksur-stilist</p>
+        <p class="font-serif text-2xl text-[#1F2A22] mb-1">{name}</p>
+        <p class="text-sm uppercase tracking-widest text-[#6F8F72] mb-6">{role}</p>
         <p class="text-[#516056] leading-relaxed">
-          Juuksur-stilist Katrin on läbinud mitmeid erialaseid koolitusi ning teinud inspireerivat ja loovat tööd ka väljaspool salongi. Pidev enesetäiendamine ja professionaalne areng on Karlova Jungle'i tööviisi loomulik osa.
+          {intro}
         </p>
       </div>
 
-      <!-- Chronological list -->
       <ol class="space-y-10">
-        {[
-          { year: '2018', items: [
-            'Tartu Ülikooli sotsiaalpedagoogika eriala',
-            'GLOW International Make-up School',
-          ]},
-          { year: '2019', items: [
-            'Balmain tootekoolitus',
-            'Goldwell tootekoolitus',
-            'Nano rings juuksepikenduste koolitus',
-            'Matrix tootekoolitus',
-            'Matrix kahepäevane VIP meistriklass Riias',
-            'Välispraktika I Boldrini Parrucchieri salongis Riminis, Itaalias',
-          ]},
-          { year: '2020', items: [
-            'Nikolai Isak kahepäevane pulmasoengu praktiline koolitus',
-            'Tartu KHK juuksuri 4. tase',
-            'OLAPLEX teoreetiline ja praktiline koolitus',
-            'Aili Püss soengukoolitus',
-          ]},
-          { year: '2021', items: [
-            'Renaldo Paabel 10 h värvi praktiline koolitus',
-            'Goar Avetisyan edasijõudnute jumestuskoolitus "Beauty-Specialist"',
-            'KEVIN.MURPHY Weekender',
-          ]},
-          { year: '2022', items: [
-            'KEVIN.MURPHY FAST.FORWARD Berliinis',
-            'KEVIN.MURPHY Session.Salon superstilisti koolitus ja graduation',
-            'KEVIN.MURPHY LAB värvikoolitus',
-            'KEVIN.MURPHY Texture.Shape.Finish koolitus',
-          ]},
-          { year: '2023', items: [
-            'KEVIN.MURPHY lokkis juuste lõikamine, hooldamine ja stiliseerimine',
-            'KEVIN.MURPHY RE:FRAME värvi- ja stiliseerimiskoolitus',
-            'KEVIN.MURPHY GREY värvikoolitus',
-            'KEVIN.MURPHY ART LAB edasijõudnute värvikoolitus',
-          ]},
-        ].map(({ year, items }) => (
+        {timeline.map(({ year, items }) => (
           <li class="grid grid-cols-[4rem_1fr] gap-6 md:gap-10">
             <span class="font-serif text-lg text-[#6F8F72] pt-0.5">{year}</span>
             <ul class="space-y-2">
@@ -70,16 +36,10 @@ import PageLayout from '../layouts/PageLayout.astro';
         ))}
       </ol>
 
-      <!-- Work outside the salon -->
       <div class="mt-16 pt-14 border-t border-[#C7D5C6]">
-        <h2 class="font-serif text-2xl md:text-3xl text-[#1F2A22] mb-8">Töö väljaspool salongi</h2>
+        <h2 class="font-serif text-2xl md:text-3xl text-[#1F2A22] mb-8">{outsideHeading}</h2>
         <ul class="space-y-3">
-          {[
-            { year: '2019', text: 'Juuksurite aasta tegija 2019 "Publiku lemmik"' },
-            { year: '2019', text: 'Backstage "Moeäratus"' },
-            { year: '2019', text: 'Backstage Estonian Fashion Festival' },
-            { year: '2022', text: 'Backstage Tallinn Fashion Week' },
-          ].map(({ year, text }) => (
+          {outsideItems.map(({ year, text }) => (
             <li class="grid grid-cols-[4rem_1fr] gap-6 md:gap-10">
               <span class="text-sm text-[#6F8F72] pt-0.5">{year}</span>
               <span class="text-[#1F2A22]">{text}</span>

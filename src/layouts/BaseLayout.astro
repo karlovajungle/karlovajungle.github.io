@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { seoDefaults } from '../data/seo';
+import { useTranslations } from '../i18n';
 import { site } from '../data/site';
 
 interface Props {
@@ -10,10 +10,12 @@ interface Props {
   noindex?: boolean;
 }
 
+const t = useTranslations();
+
 const {
-  title = seoDefaults.title,
-  description = seoDefaults.description,
-  ogImage = seoDefaults.ogImage,
+  title = t.common.seo.title,
+  description = t.common.seo.description,
+  ogImage = '/images/og/og-default.jpg',
   noindex = false,
 } = Astro.props;
 

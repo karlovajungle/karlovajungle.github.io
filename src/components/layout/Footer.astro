@@ -1,7 +1,10 @@
 ---
+import { useTranslations } from '../../i18n';
 import { site } from '../../data/site';
 import { contact } from '../../data/contact';
 
+const t = useTranslations();
+const { footer } = t.common;
 const year = new Date().getFullYear();
 ---
 
@@ -12,12 +15,12 @@ const year = new Date().getFullYear();
       <div>
         <img
           src="/images/logos/logo-header.svg"
-          alt="Karlova Jungle"
+          alt={footer.logoAlt}
           class="h-8 w-auto mb-3"
           width="120"
           height="32"
         />
-        <p class="text-sm text-[#516056]">{contact.address}</p>
+        <p class="text-sm text-[#516056]">{t.common.address}</p>
       </div>
 
       <!-- Links -->
@@ -55,16 +58,16 @@ const year = new Date().getFullYear();
           rel="noopener noreferrer"
           class="inline-block px-5 py-2 text-sm font-medium border border-[#3F5A45] text-[#3F5A45] rounded-sm hover:bg-[#3F5A45] hover:text-[#F4F7F2] transition-colors w-fit"
         >
-          Broneeri
+          {footer.booking}
         </a>
         <div class="flex gap-4 text-xs text-[#516056]">
-          <a href="/privaatsuspoliitika" class="hover:text-[#3F5A45] transition-colors">Privaatsuspoliitika</a>
+          <a href={footer.privacyHref} class="hover:text-[#3F5A45] transition-colors">{footer.privacy}</a>
         </div>
       </div>
     </div>
 
     <div class="mt-8 pt-6 border-t border-[#C7D5C6] text-xs text-[#516056]">
-      &copy; {year} {site.name}. Kõik õigused kaitstud.
+      &copy; {year} {site.name}. {footer.copyright}
     </div>
   </div>
 </footer>
