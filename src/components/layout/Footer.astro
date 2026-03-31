@@ -1,0 +1,70 @@
+---
+import { site } from '../../data/site';
+import { contact } from '../../data/contact';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[#C7D5C6] bg-[#F4F7F2] mt-auto">
+  <div class="container-site py-10 md:py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <!-- Brand -->
+      <div>
+        <img
+          src="/images/logos/logo-header.svg"
+          alt="Karlova Jungle"
+          class="h-8 w-auto mb-3"
+          width="120"
+          height="32"
+        />
+        <p class="text-sm text-[#516056]">{contact.address}</p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-col gap-3">
+        <a
+          href={site.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-sm text-[#516056] hover:text-[#3F5A45] transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          {site.instagramHandle}
+        </a>
+        <a
+          href={`mailto:${contact.email}`}
+          class="flex items-center gap-2 text-sm text-[#516056] hover:text-[#3F5A45] transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          {contact.email}
+        </a>
+      </div>
+
+      <!-- Booking + legal -->
+      <div class="flex flex-col gap-3 md:items-end">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-5 py-2 text-sm font-medium border border-[#3F5A45] text-[#3F5A45] rounded-sm hover:bg-[#3F5A45] hover:text-[#F4F7F2] transition-colors w-fit"
+        >
+          Broneeri
+        </a>
+        <div class="flex gap-4 text-xs text-[#516056]">
+          <a href="/privaatsuspoliitika" class="hover:text-[#3F5A45] transition-colors">Privaatsuspoliitika</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-[#C7D5C6] text-xs text-[#516056]">
+      &copy; {year} {site.name}. Kõik õigused kaitstud.
+    </div>
+  </div>
+</footer>

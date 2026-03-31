@@ -1,0 +1,86 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { contact } from '../data/contact';
+---
+
+<PageLayout
+  title="Privaatsuspoliitika — Karlova Jungle"
+  description="Karlova Jungle privaatsuspoliitika — kuidas me isikuandmeid kogume ja töötleme."
+  noindex={true}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site max-w-2xl">
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-4">Privaatsuspoliitika</h1>
+      <p class="text-sm text-[#6F8F72] mb-12">Viimati uuendatud: märts 2026</p>
+
+      <div class="space-y-10 text-[#516056] leading-relaxed">
+
+        <section>
+          <h2 class="font-serif text-xl text-[#1F2A22] mb-3">1. Milliseid andmeid kogutakse ja kes vastutab</h2>
+          <p>
+            Karlova Jungle veebileht ise ei kogu isikuandmeid. Aja broneerimiseks suunatakse
+            külastaja välisele broneerimisplatvormile <strong class="text-[#1F2A22] font-medium">salon.life</strong>,
+            mis tegutseb iseseisvalt vastutava töötlejana ning vastutab täielikult broneeringu
+            käigus kogutavate isikuandmete (nimi, e-post, telefon, broneeringu ajalugu) töötlemise
+            eest. Karlova Jungle ei kogu, ei säilita ega töötle neid andmeid.
+          </p>
+          <p class="mt-3">
+            Broneerimisplatvormile oma andmete esitamisega nõustub kasutaja salon.life
+            kasutustingimuste ja privaatsuspoliitikaga. Kõik andmekaitsega seotud küsimused,
+            sealhulgas andmetele juurdepääsu, parandamise ja kustutamise taotlused, tuleb
+            esitada otse salon.life'ile.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-xl text-[#1F2A22] mb-3">2. Kolmandad osapooled</h2>
+          <p>Veebileht kasutab järgmisi kolmandate osapoolte teenuseid:</p>
+          <ul class="mt-3 space-y-2">
+            <li>
+              <strong class="text-[#1F2A22] font-medium">salon.life</strong> — iseseisev vastutav
+              töötleja, kes vastutab kõigi broneeringuandmete töötlemise eest vastavalt oma
+              privaatsuspoliitikale.
+            </li>
+            <li>
+              <strong class="text-[#1F2A22] font-medium">Google Maps</strong> — kaardi kuvamiseks
+              kasutatakse Google'i manustatud kaarti, mis võib koguda külastaja andmeid vastavalt
+              Google'i privaatsuspoliitikale.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-xl text-[#1F2A22] mb-3">3. Küpsised</h2>
+          <p>
+            Karlova Jungle veebileht ise ei kasuta jälgimisküpsiseid ega analüütikavahendeid.
+            Kolmandate osapoolte teenused (Google Maps, salon.life) võivad oma küpsiseid kasutada
+            vastavalt nende enda tingimustele.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-xl text-[#1F2A22] mb-3">4. Teie õigused</h2>
+          <p>
+            Kuna broneeringuandmeid töötleb salon.life, tuleb kõik andmekaitsega seotud taotlused
+            (juurdepääs, parandamine, kustutamine, ülekandmine) esitada otse salon.life'ile vastavalt
+            nende privaatsuspoliitikale.
+          </p>
+          <p class="mt-3">
+            Üldiste küsimuste korral võite võtta ühendust ka meiega:
+            <a href={`mailto:${contact.email}`} class="text-[#3F5A45] underline underline-offset-2">{contact.email}</a>.
+            Kaebuse saab esitada Andmekaitse Inspektsioonile (<a href="https://www.aki.ee" target="_blank" rel="noopener noreferrer" class="text-[#3F5A45] underline underline-offset-2">aki.ee</a>).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-xl text-[#1F2A22] mb-3">5. Muudatused</h2>
+          <p>
+            Jätame endale õiguse privaatsuspoliitikat ajakohastada. Oluliste muudatuste korral
+            teavitatakse sellest veebilehel.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</PageLayout>

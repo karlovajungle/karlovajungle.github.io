@@ -1,0 +1,46 @@
+---
+import { site } from '../../data/site';
+---
+
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  aria-label="Hero"
+>
+  <!-- Background image -->
+  <picture>
+    <source
+      media="(max-width: 767px)"
+      srcset="/images/hero/karlova-jungle-hero-mobile.webp"
+    />
+    <img
+      src="/images/hero/karlova-jungle-hero-desktop.webp"
+      alt=""
+      role="presentation"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/45" aria-hidden="true"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center text-center px-6">
+    <img
+      src="/images/logos/logo-hero.png"
+      alt="Karlova Jungle"
+      class="w-48 md:w-64 lg:w-72 mb-8"
+      width="288"
+      height="288"
+    />
+    <a
+      href={site.bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-10 py-4 text-sm font-sans font-semibold tracking-widest uppercase bg-[#E7F0E4] text-[#1F2A22] rounded-sm hover:bg-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      Broneeri
+    </a>
+  </div>
+</section>

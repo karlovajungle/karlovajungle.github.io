@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://karlovajungle.github.io/sitemap-index.xml
