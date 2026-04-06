@@ -1,6 +1,6 @@
 export const contact = {
   meta: {
-    title: 'Contact — Karlova Jungle',
+    title: 'Contact - Karlova Jungle',
     description:
       'Karlova Jungle location, email and booking. In Tartu\'s Karlova district.',
   },

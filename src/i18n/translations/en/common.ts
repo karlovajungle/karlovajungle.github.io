@@ -4,7 +4,7 @@ export const common = {
   address: 'Tähe 19 - 44, 2nd floor, Tartu, Estonia',
 
   seo: {
-    title: 'Karlova Jungle — Private Beauty Studio in the Heart of Tartu',
+    title: 'Karlova Jungle - Private Beauty Studio in the Heart of Tartu',
     description:
       'Karlova Jungle is a private hair and beauty salon in Tartu\'s Karlova district. Appointment-based, personalised service.',
   },
@@ -22,7 +22,7 @@ export const common = {
 
   header: {
     logoAlt: 'Karlova Jungle',
-    logoAriaLabel: 'Karlova Jungle — home',
+    logoAriaLabel: 'Karlova Jungle - home',
     booking: 'Book',
     openMenu: 'Open menu',
     mobileMenuLabel: 'Navigation menu',

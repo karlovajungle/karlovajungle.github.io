@@ -1,8 +1,8 @@
 export const services = {
   meta: {
-    title: 'Услуги и цены — Karlova Jungle',
+    title: 'Услуги и цены - Karlova Jungle',
     description:
-      'Karlova Jungle — список услуг и цены. Стрижки, окрашивание, уход, укладки и макияж.',
+      'Karlova Jungle - список услуг и цены. Стрижки, окрашивание, уход, укладки и макияж.',
   },
 
   heading: 'Услуги и цены',

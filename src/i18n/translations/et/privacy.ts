@@ -1,8 +1,8 @@
 export const privacy = {
   meta: {
-    title: 'Privaatsuspoliitika — Karlova Jungle',
+    title: 'Privaatsuspoliitika - Karlova Jungle',
     description:
-      'Karlova Jungle privaatsuspoliitika — kuidas me isikuandmeid kogume ja töötleme.',
+      'Karlova Jungle privaatsuspoliitika - kuidas me isikuandmeid kogume ja töötleme.',
   },
 
   heading: 'Privaatsuspoliitika',
@@ -30,12 +30,12 @@ export const privacy = {
       content: `<p>Veebileht kasutab järgmisi kolmandate osapoolte teenuseid:</p>
         <ul class="mt-3 space-y-2">
           <li>
-            <strong class="text-[#1F2A22] font-medium">salon.life</strong> — iseseisev vastutav
+            <strong class="text-[#1F2A22] font-medium">salon.life</strong> - iseseisev vastutav
             töötleja, kes vastutab kõigi broneeringuandmete töötlemise eest vastavalt oma
             privaatsuspoliitikale.
           </li>
           <li>
-            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> — kaardi kuvamiseks
+            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> - kaardi kuvamiseks
             kasutatakse Google'i manustatud kaarti, mis võib koguda külastaja andmeid vastavalt
             Google'i privaatsuspoliitikale.
           </li>

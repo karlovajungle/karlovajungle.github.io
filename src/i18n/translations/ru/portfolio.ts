@@ -1,8 +1,8 @@
 export const portfolio = {
   meta: {
-    title: 'Галерея — Karlova Jungle',
+    title: 'Галерея - Karlova Jungle',
     description:
-      'Портфолио Karlova Jungle — примеры стрижек, окрашивания и ухода за волосами.',
+      'Портфолио Karlova Jungle - примеры стрижек, окрашивания и ухода за волосами.',
   },
 
   heading: 'Галерея',

@@ -1,8 +1,8 @@
 export const privacy = {
   meta: {
-    title: 'Политика конфиденциальности — Karlova Jungle',
+    title: 'Политика конфиденциальности - Karlova Jungle',
     description:
-      'Политика конфиденциальности Karlova Jungle — как мы собираем и обрабатываем персональные данные.',
+      'Политика конфиденциальности Karlova Jungle - как мы собираем и обрабатываем персональные данные.',
   },
 
   heading: 'Политика конфиденциальности',
@@ -31,12 +31,12 @@ export const privacy = {
       content: `<p>Сайт использует следующие сторонние сервисы:</p>
         <ul class="mt-3 space-y-2">
           <li>
-            <strong class="text-[#1F2A22] font-medium">salon.life</strong> — самостоятельный
+            <strong class="text-[#1F2A22] font-medium">salon.life</strong> - самостоятельный
             оператор персональных данных, несущий ответственность за обработку всех данных
             бронирований в соответствии со своей политикой конфиденциальности.
           </li>
           <li>
-            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> — для отображения
+            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> - для отображения
             местоположения используется встроенная карта Google, которая может собирать данные
             посетителей в соответствии с политикой конфиденциальности Google.
           </li>

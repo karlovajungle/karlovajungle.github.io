@@ -4,9 +4,9 @@ export const common = {
   address: 'Tähe 19 - 44, 2 этаж, Тарту, Эстония',
 
   seo: {
-    title: 'Karlova Jungle — студия красоты в сердце Тарту',
+    title: 'Karlova Jungle - студия красоты в сердце Тарту',
     description:
-      'Karlova Jungle — салон красоты и парикмахерская в районе Карлова города Тарту. Работа по записи, индивидуальный подход.',
+      'Karlova Jungle - салон красоты и парикмахерская в районе Карлова города Тарту. Работа по записи, индивидуальный подход.',
   },
 
   nav: {
@@ -22,7 +22,7 @@ export const common = {
 
   header: {
     logoAlt: 'Karlova Jungle',
-    logoAriaLabel: 'Karlova Jungle — главная',
+    logoAriaLabel: 'Karlova Jungle - главная',
     booking: 'Записаться',
     openMenu: 'Открыть меню',
     mobileMenuLabel: 'Навигационное меню',

@@ -1,6 +1,6 @@
 export const home = {
   meta: {
-    title: 'Karlova Jungle — Private Beauty Studio in the Heart of Tartu',
+    title: 'Karlova Jungle - Private Beauty Studio in the Heart of Tartu',
     description:
       'Karlova Jungle is a private hair and beauty salon in Tartu\'s Karlova district. Appointment-based, personalised service.',
   },

@@ -1,8 +1,8 @@
 export const experience = {
   meta: {
-    title: 'Kogemus — Karlova Jungle',
+    title: 'Kogemus - Karlova Jungle',
     description:
-      'Katrin Jasinski — juuksur-stilist. Erialane haridus, koolitused ja kogemus.',
+      'Katrin Jasinski - juuksur-stilist. Erialane haridus, koolitused ja kogemus.',
   },
 
   heading: 'Kogemus',

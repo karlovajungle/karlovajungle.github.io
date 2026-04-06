@@ -1,6 +1,6 @@
 export const services = {
   meta: {
-    title: 'Teenused ja hinnad — Karlova Jungle',
+    title: 'Teenused ja hinnad - Karlova Jungle',
     description:
       'Karlova Jungle teenuste nimekiri ja hinnad. Juuste lõikamine, värvimine, hooldus, soengud ja jumestus.',
   },

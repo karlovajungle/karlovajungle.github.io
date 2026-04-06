@@ -1,6 +1,6 @@
 export const notFound = {
   meta: {
-    title: 'Lehte ei leitud — Karlova Jungle',
+    title: 'Lehte ei leitud - Karlova Jungle',
   },
 
   heading: '404',

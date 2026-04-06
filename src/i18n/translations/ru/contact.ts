@@ -1,6 +1,6 @@
 export const contact = {
   meta: {
-    title: 'Контакт — Karlova Jungle',
+    title: 'Контакт - Karlova Jungle',
     description:
       'Адрес, email и запись в Karlova Jungle. В районе Карлова, Тарту.',
   },

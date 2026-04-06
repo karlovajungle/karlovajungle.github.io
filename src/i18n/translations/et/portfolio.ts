@@ -1,8 +1,8 @@
 export const portfolio = {
   meta: {
-    title: 'Tööd — Karlova Jungle',
+    title: 'Tööd - Karlova Jungle',
     description:
-      'Karlova Jungle portfoolio — juuste lõikamise, värvimise ja hoolduse näidistööd.',
+      'Karlova Jungle portfoolio - juuste lõikamise, värvimise ja hoolduse näidistööd.',
   },
 
   heading: 'Tööd',

@@ -1,6 +1,6 @@
 export const services = {
   meta: {
-    title: 'Services & Prices — Karlova Jungle',
+    title: 'Services & Prices - Karlova Jungle',
     description:
       'Karlova Jungle service list and prices. Haircuts, colouring, treatments, styling and makeup.',
   },

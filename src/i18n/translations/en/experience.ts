@@ -1,8 +1,8 @@
 export const experience = {
   meta: {
-    title: 'Experience — Karlova Jungle',
+    title: 'Experience - Karlova Jungle',
     description:
-      'Katrin Jasinski — hair stylist. Professional education, training and experience.',
+      'Katrin Jasinski - hair stylist. Professional education, training and experience.',
   },
 
   heading: 'Experience',

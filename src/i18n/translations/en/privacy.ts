@@ -1,8 +1,8 @@
 export const privacy = {
   meta: {
-    title: 'Privacy Policy — Karlova Jungle',
+    title: 'Privacy Policy - Karlova Jungle',
     description:
-      'Karlova Jungle privacy policy — how we collect and process personal data.',
+      'Karlova Jungle privacy policy - how we collect and process personal data.',
   },
 
   heading: 'Privacy Policy',
@@ -29,12 +29,12 @@ export const privacy = {
       content: `<p>The website uses the following third-party services:</p>
         <ul class="mt-3 space-y-2">
           <li>
-            <strong class="text-[#1F2A22] font-medium">salon.life</strong> — an independent
+            <strong class="text-[#1F2A22] font-medium">salon.life</strong> - an independent
             data controller responsible for all booking data processing in accordance with
             its own privacy policy.
           </li>
           <li>
-            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> — an embedded
+            <strong class="text-[#1F2A22] font-medium">Google Maps</strong> - an embedded
             Google map is used to display the location, which may collect visitor data in
             accordance with Google's privacy policy.
           </li>
