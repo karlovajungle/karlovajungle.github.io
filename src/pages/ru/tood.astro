@@ -1,0 +1,169 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n';
+
+const locale = 'ru' as const;
+const t = useTranslations(locale);
+const { meta, heading, gridLabel, imageAlt, viewLargePrefix, lightbox } = t.portfolio;
+
+const works = Array.from({ length: 16 }, (_, i) => ({
+  src: `/images/works/work-${String(i + 1).padStart(2, '0')}.webp`,
+  alt: imageAlt,
+}));
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  locale={locale}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site">
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-12">{heading}</h1>
+
+      <div
+        class="grid grid-cols-2 gap-3 md:gap-4"
+        role="list"
+        aria-label={gridLabel}
+      >
+        {works.map((work, index) => (
+          <button
+            type="button"
+            class="group relative aspect-[3/4] overflow-hidden rounded-sm bg-[#C7D5C6] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72]"
+            data-lightbox-index={index}
+            data-src={work.src}
+            data-alt={work.alt}
+            aria-label={`${viewLargePrefix}: ${work.alt}`}
+            role="listitem"
+          >
+            <img
+              src={work.src}
+              alt={work.alt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              loading={index < 4 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label={lightbox.label}
+    class="fixed inset-0 z-50 hidden bg-black/90 items-center justify-center"
+  >
+    <button
+      id="lightbox-close"
+      type="button"
+      aria-label={lightbox.close}
+      class="absolute top-4 right-4 p-2 text-white hover:text-[#C7D5C6] transition-colors focus-visible:outline-2 focus-visible:outline-white"
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <line x1="4" y1="4" x2="20" y2="20"/>
+        <line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+
+    <button
+      id="lightbox-prev"
+      type="button"
+      aria-label={lightbox.prev}
+      class="absolute left-3 md:left-6 p-2 text-white hover:text-[#C7D5C6] transition-colors focus-visible:outline-2 focus-visible:outline-white"
+    >
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <div class="max-w-3xl max-h-[85vh] w-full px-14 md:px-20">
+      <img
+        id="lightbox-img"
+        src=""
+        alt=""
+        class="max-h-[85vh] w-full object-contain"
+      />
+    </div>
+
+    <button
+      id="lightbox-next"
+      type="button"
+      aria-label={lightbox.next}
+      class="absolute right-3 md:right-6 p-2 text-white hover:text-[#C7D5C6] transition-colors focus-visible:outline-2 focus-visible:outline-white"
+    >
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+  </div>
+</PageLayout>
+
+<script>
+  const lightbox = document.getElementById('lightbox') as HTMLElement;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const closeBtn = document.getElementById('lightbox-close') as HTMLButtonElement;
+  const prevBtn = document.getElementById('lightbox-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('lightbox-next') as HTMLButtonElement;
+
+  const buttons = Array.from(document.querySelectorAll<HTMLElement>('[data-lightbox-index]'));
+  const works = buttons.map(btn => ({
+    src: btn.dataset.src!,
+    alt: btn.dataset.alt!,
+  }));
+
+  let currentIndex = 0;
+
+  function openLightbox(index: number) {
+    currentIndex = index;
+    lightboxImg.src = works[index].src;
+    lightboxImg.alt = works[index].alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + works.length) % works.length;
+    lightboxImg.src = works[currentIndex].src;
+    lightboxImg.alt = works[currentIndex].alt;
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % works.length;
+    lightboxImg.src = works[currentIndex].src;
+    lightboxImg.alt = works[currentIndex].alt;
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.dataset.lightboxIndex || '0');
+      openLightbox(index);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+</script>

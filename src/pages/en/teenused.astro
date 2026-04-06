@@ -1,0 +1,46 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n';
+
+const locale = 'en' as const;
+const t = useTranslations(locale);
+const { meta, heading, sections } = t.services;
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  locale={locale}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site max-w-2xl">
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-12">{heading}</h1>
+
+      {sections.map((section, idx) => (
+        <section class={idx === sections.length - 1 ? 'mb-12' : 'mb-10'} aria-labelledby={section.id}>
+          <h2 id={section.id} class="font-serif text-2xl text-[#1F2A22] mb-5 pb-3 border-b border-[#C7D5C6]">{section.heading}</h2>
+          <ul class="space-y-4">
+            {section.items.map(item => (
+              'note' in item && item.note ? (
+                <li>
+                  <div class="flex justify-between items-baseline gap-4">
+                    <span class="text-[#1F2A22]">{item.name}</span>
+                    <span class="shrink-0 text-[#516056]">{item.price}</span>
+                  </div>
+                  <p class="text-sm text-[#516056] mt-1">{item.note}</p>
+                </li>
+              ) : (
+                <li class="flex justify-between items-baseline gap-4">
+                  <span class="text-[#1F2A22]">{item.name}</span>
+                  <span class="shrink-0 text-[#516056]">{item.price}</span>
+                </li>
+              )
+            ))}
+          </ul>
+          {section.footnote && <p class="text-sm text-[#516056] italic mt-5">{section.footnote}</p>}
+        </section>
+      ))}
+
+    </div>
+  </div>
+</PageLayout>

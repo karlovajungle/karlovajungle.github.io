@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n';
+import { contact as contactData } from '../../data/contact';
+
+const locale = 'ru' as const;
+const t = useTranslations(locale);
+const { meta, heading, lastUpdated, sections } = t.privacy;
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  noindex={true}
+  locale={locale}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site max-w-2xl">
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-4">{heading}</h1>
+      <p class="text-sm text-[#6F8F72] mb-12">{lastUpdated}</p>
+
+      <div class="space-y-10 text-[#516056] leading-relaxed">
+        {sections.map(section => (
+          <section>
+            <h2 class="font-serif text-xl text-[#1F2A22] mb-3">{section.heading}</h2>
+            <Fragment set:html={section.content.replaceAll('{{email}}', contactData.email)} />
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</PageLayout>

@@ -1,10 +1,17 @@
 ---
-import { useTranslations } from '../../i18n';
+import { useTranslations, type Locale } from '../../i18n';
 import { site } from '../../data/site';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 
-const t = useTranslations();
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'et' } = Astro.props;
+const t = useTranslations(locale);
 const { nav, header } = t.common;
 const pathname = Astro.url.pathname;
+const homeHref = locale === 'et' ? '/' : `/${locale}`;
 ---
 
 <header
@@ -15,7 +22,7 @@ const pathname = Astro.url.pathname;
   <div class="container-site">
     <nav class="flex items-center justify-between h-16 md:h-20" aria-label={nav.ariaLabel}>
       <!-- Logo -->
-      <a href="/" class="flex items-center shrink-0" aria-label={header.logoAriaLabel}>
+      <a href={homeHref} class="flex items-center shrink-0" aria-label={header.logoAriaLabel}>
         <img
           src="/images/logos/logo-leaf.svg"
           alt={header.logoAlt}
@@ -31,12 +38,13 @@ const pathname = Astro.url.pathname;
           <a
             href={link.href}
             class={`text-sm font-sans font-medium tracking-wide transition-colors hover:text-[#6F8F72] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72] ${
-              pathname === link.href ? 'text-[#6F8F72]' : 'text-current'
+              pathname === (link.href as string) ? 'text-[#6F8F72]' : 'text-current'
             }`}
           >
             {link.label}
           </a>
         ))}
+        <LanguageSwitcher locale={locale} pathname={pathname} />
         <a
           href={site.bookingUrl}
           target="_blank"
@@ -92,13 +100,32 @@ const pathname = Astro.url.pathname;
       {nav.links.map(link => (
         <a
           href={link.href}
-          class={`py-3 text-base font-sans font-medium border-b border-[#C7D5C6] last:border-0 transition-colors hover:text-[#6F8F72] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72] ${
-            pathname === link.href ? 'text-[#6F8F72]' : 'text-[#1F2A22]'
+          class={`py-3 text-base font-sans font-medium border-b border-[#C7D5C6] transition-colors hover:text-[#6F8F72] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6F8F72] ${
+            pathname === (link.href as string) ? 'text-[#6F8F72]' : 'text-[#1F2A22]'
           }`}
         >
           {link.label}
         </a>
       ))}
+      <!-- Language switcher at bottom of mobile menu -->
+      <div class="pt-4 mt-2 border-t border-[#C7D5C6]">
+        <p class="text-xs font-medium uppercase tracking-widest text-[#6F8F72] mb-3">Language</p>
+        <div class="flex gap-4">
+          {[
+            { code: 'et', label: 'Eesti',   href: (() => { const slug = pathname.replace(/^\/(en|ru)/, '') || '/'; return slug; })() },
+            { code: 'en', label: 'English', href: (() => { const slug = pathname.replace(/^\/(en|ru)/, '') || '/'; return slug === '/' ? '/en' : `/en${slug}`; })() },
+            { code: 'ru', label: 'Русский', href: (() => { const slug = pathname.replace(/^\/(en|ru)/, '') || '/'; return slug === '/' ? '/ru' : `/ru${slug}`; })() },
+          ].map(lang => (
+            <a
+              href={lang.href}
+              class={`text-sm font-sans ${lang.code === locale ? 'text-[#6F8F72] font-semibold' : 'text-[#1F2A22] hover:text-[#3F5A45]'} transition-colors`}
+              aria-current={lang.code === locale ? 'true' : undefined}
+            >
+              {lang.label}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -107,8 +134,8 @@ const pathname = Astro.url.pathname;
   const header = document.getElementById('site-header') as HTMLElement;
   const toggle = document.getElementById('menu-toggle') as HTMLButtonElement;
   const menu = document.getElementById('mobile-menu') as HTMLElement;
-  const iconOpen = document.getElementById('icon-open') as SVGElement;
-  const iconClose = document.getElementById('icon-close') as SVGElement;
+  const iconOpen = document.getElementById('icon-open') as unknown as SVGElement;
+  const iconClose = document.getElementById('icon-close') as unknown as SVGElement;
 
   function updateHeader() {
     if (window.scrollY > 40) {

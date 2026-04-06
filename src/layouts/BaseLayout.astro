@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { useTranslations } from '../i18n';
+import { useTranslations, type Locale } from '../i18n';
 import { site } from '../data/site';
 
 interface Props {
@@ -8,23 +8,31 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  locale?: Locale;
 }
 
-const t = useTranslations();
+const { locale = 'et', noindex = false, ogImage = '/images/og/og-default.jpg' } = Astro.props;
+const t = useTranslations(locale);
 
 const {
   title = t.common.seo.title,
   description = t.common.seo.description,
-  ogImage = '/images/og/og-default.jpg',
-  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, site.url);
 const ogImageURL = new URL(ogImage, site.url);
+
+// Build hreflang URLs
+const slug = Astro.url.pathname.replace(/^\/(en|ru)/, '') || '/';
+const etURL = new URL(slug, site.url);
+const enURL = new URL(slug === '/' ? '/en' : `/en${slug}`, site.url);
+const ruURL = new URL(slug === '/' ? '/ru' : `/ru${slug}`, site.url);
+
+const ogLocale = locale === 'ru' ? 'ru_RU' : locale === 'en' ? 'en_US' : 'et_EE';
 ---
 
 <!doctype html>
-<html lang="et">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,6 +43,12 @@ const ogImageURL = new URL(ogImage, site.url);
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex" />}
 
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="et" href={etURL} />
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="ru" href={ruURL} />
+    <link rel="alternate" hreflang="x-default" href={etURL} />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -42,12 +56,17 @@ const ogImageURL = new URL(ogImage, site.url);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:locale" content="et_EE" />
+    <meta property="og:locale" content={ogLocale} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+
+    <!-- Language preference: save locale to localStorage -->
+    <script is:inline define:vars={{ locale }}>
+      try { localStorage.setItem('lang', locale); } catch (_) {}
+    </script>
   </head>
   <body>
     <slot />

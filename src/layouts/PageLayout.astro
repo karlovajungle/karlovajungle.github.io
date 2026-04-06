@@ -2,21 +2,23 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import type { Locale } from '../i18n';
 
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  locale?: Locale;
 }
 
-const props = Astro.props;
+const { locale = 'et', ...rest } = Astro.props;
 ---
 
-<BaseLayout {...props}>
-  <Header />
+<BaseLayout locale={locale} {...rest}>
+  <Header locale={locale} />
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer locale={locale} />
 </BaseLayout>

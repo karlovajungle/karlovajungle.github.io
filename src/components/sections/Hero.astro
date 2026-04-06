@@ -1,8 +1,13 @@
 ---
-import { useTranslations } from '../../i18n';
+import { useTranslations, type Locale } from '../../i18n';
 import { site } from '../../data/site';
 
-const t = useTranslations();
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'et' } = Astro.props;
+const t = useTranslations(locale);
 const { hero } = t.home;
 ---
 

@@ -1,0 +1,55 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n';
+
+const locale = 'en' as const;
+const t = useTranslations(locale);
+const { meta, heading, name, role, intro, timeline, outsideHeading, outsideItems } = t.experience;
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  locale={locale}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site max-w-2xl">
+
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-8">{heading}</h1>
+
+      <div class="mb-14 pb-14 border-b border-[#C7D5C6]">
+        <p class="font-serif text-2xl text-[#1F2A22] mb-1">{name}</p>
+        <p class="text-sm uppercase tracking-widest text-[#6F8F72] mb-6">{role}</p>
+        <p class="text-[#516056] leading-relaxed">
+          {intro}
+        </p>
+      </div>
+
+      <ol class="space-y-10">
+        {timeline.map(({ year, items }) => (
+          <li class="grid grid-cols-[4rem_1fr] gap-6 md:gap-10">
+            <span class="font-serif text-lg text-[#6F8F72] pt-0.5">{year}</span>
+            <ul class="space-y-2">
+              {items.map(item => (
+                <li class="text-[#1F2A22] leading-snug">{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-16 pt-14 border-t border-[#C7D5C6]">
+        <h2 class="font-serif text-2xl md:text-3xl text-[#1F2A22] mb-8">{outsideHeading}</h2>
+        <ul class="space-y-3">
+          {outsideItems.map(({ year, text }) => (
+            <li class="grid grid-cols-[4rem_1fr] gap-6 md:gap-10">
+              <span class="text-sm text-[#6F8F72] pt-0.5">{year}</span>
+              <span class="text-[#1F2A22]">{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</PageLayout>

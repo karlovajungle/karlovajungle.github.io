@@ -1,9 +1,9 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
-import Hero from '../components/sections/Hero.astro';
-import { useTranslations } from '../i18n';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import { useTranslations } from '../../i18n';
 
-const locale = 'et' as const;
+const locale = 'ru' as const;
 const t = useTranslations(locale);
 const { meta, about } = t.home;
 ---
@@ -41,19 +41,3 @@ const { meta, about } = t.home;
     </div>
   </section>
 </PageLayout>
-
-<script>
-  // Auto-detect language on first visit only (no stored preference)
-  try {
-    const stored = localStorage.getItem('lang');
-    if (!stored) {
-      const lang = (navigator.language || '').toLowerCase();
-      if (lang.startsWith('en')) {
-        location.replace('/en');
-      } else if (lang.startsWith('ru')) {
-        location.replace('/ru');
-      }
-      // Otherwise stay on ET — BaseLayout will save 'et' to localStorage
-    }
-  } catch (_) {}
-</script>

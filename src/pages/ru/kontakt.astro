@@ -1,0 +1,81 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n';
+import { site } from '../../data/site';
+import { contact as contactData } from '../../data/contact';
+
+const locale = 'ru' as const;
+const t = useTranslations(locale);
+const { meta, heading, labels, openMap, mapTitle } = t.contact;
+---
+
+<PageLayout
+  title={meta.title}
+  description={meta.description}
+  locale={locale}
+>
+  <div class="pt-28 md:pt-36 section-spacing">
+    <div class="container-site max-w-xl">
+      <h1 class="font-serif text-4xl md:text-5xl text-[#1F2A22] mb-12">{heading}</h1>
+
+      <dl class="space-y-8">
+        <div>
+          <dt class="text-xs font-medium uppercase tracking-widest text-[#6F8F72] mb-1">{labels.location}</dt>
+          <dd class="text-[#1F2A22] text-lg">{t.common.address}</dd>
+          <dd class="mt-2">
+            <a
+              href={contactData.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block text-sm text-[#3F5A45] border-b border-[#6F8F72] hover:border-[#3F5A45] transition-colors"
+            >
+              {openMap}
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="text-xs font-medium uppercase tracking-widest text-[#6F8F72] mb-1">{labels.email}</dt>
+          <dd>
+            <a
+              href={`mailto:${contactData.email}`}
+              class="text-[#1F2A22] text-lg hover:text-[#3F5A45] transition-colors"
+            >
+              {contactData.email}
+            </a>
+          </dd>
+        </div>
+
+        <div>
+          <dt class="text-xs font-medium uppercase tracking-widest text-[#6F8F72] mb-1">{labels.instagram}</dt>
+          <dd>
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#1F2A22] text-lg hover:text-[#3F5A45] transition-colors"
+            >
+              {site.instagramHandle}
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="mt-12 hidden md:block">
+        <div class="aspect-video w-full rounded-sm overflow-hidden bg-[#C7D5C6]">
+          <iframe
+            src="https://maps.google.com/maps?q=T%C3%A4he+19,+Tartu,+Estonia&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={mapTitle}
+            class="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</PageLayout>
