@@ -7,6 +7,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.karlovajungle.eu',
   output: 'static',
+  redirects: {
+    '/hinnakiri': '/teenused',
+    '/portfoolio': '/tood',
+  },
   vite: {
     plugins: [tailwindcss()]
   },
